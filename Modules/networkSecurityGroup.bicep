@@ -3,7 +3,7 @@ param ResourceName string = 'bicep'
 param location string = resourceGroup().location
 param tagValues object
 param securityRules array
-
+privateLinkServiceId: resourceId('Microsoft.Sql/servers/', sqlServerName)
 var nsgName = !(empty(ResourcePrefix)) ? '${ResourcePrefix}-NSG' : ResourceName
 
 resource nsg 'Microsoft.Network/networkSecurityGroups@2020-06-01' = {
